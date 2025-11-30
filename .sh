@@ -14,5 +14,5 @@ for i in "${DIRS[@]}"; do
 	mkdir -p "$i"
 done
 exec > logs/app.log
-find . -name "*.apk" -exec cp {} bin \;
+find . -name "*.apk" -not -name "*-androidTest.apk" -exec cp {} bin \;
 find . -name "*.gradle" -exec echo {} \;
