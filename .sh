@@ -21,7 +21,7 @@ find . \
 	-exec cp {} bin \; > /dev/null 2>& 1
 for i in src/*.c; do
 	if [[ ! $i = "src/*.c" ]]; then
-		o="$(echo $i | perl -pe 's/src(\/.+)\.c/dist$1/g')"
+		o="$(echo $i | perl -pe 's/src\/(.+)\.c/dist\/$1/g')"
 		echo "$i -> $o"
 		gcc "$i" -o "$o"
 		./$o
